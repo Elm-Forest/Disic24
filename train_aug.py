@@ -52,7 +52,7 @@ use_meta = True
 meta_features, train, test = get_meta_feature(train, test)
 transforms_train, transforms_val = get_transforms(image_size=image_size)
 
-dataset = MelanomaDataset(csv=train, hdf5=hdf, mode="train", meta_features=meta_features, transform=transforms_val)
+dataset = MelanomaDataset(csv=train, hdf5=hdf, mode="train", meta_features=meta_features, transform=transforms_train)
 # dataloader = DataLoader(dataset, shuffle=False, batch_size=batch_size)
 
 model = Effnet_Melanoma(enet_type, n_class, n_meta_features=len(meta_features), pretrained=False).to(device)
